@@ -26,6 +26,10 @@ class GameCore(GameMessages):
             return text_input
         else:
 
+            if input_number < 1 or input_number > 100:
+                text_input = GameMessages.OUT_OF_RANGE_MES
+                return text_input
+
             if input_number == self.number:
                 text_input = GameMessages.WIN_MES.format(self.number)
 

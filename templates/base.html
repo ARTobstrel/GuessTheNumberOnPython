@@ -20,17 +20,24 @@
 <div id="main-frame">
 
     <div id="window-out">
-    <code disabled name="window" readonly>
-        {% block window %}{% endblock %}
-    </code>
+        <code disabled name="window" readonly>
+            {% block window %}{% endblock %}
+        </code>
     </div>
 
 
-    <div id="input-frame">
-        <form action="{{ url_for('index') }}" method="POST">
-            <input type="text" placeholder="input number" name="val" autofocus>
+    <form action="{{ url_for('index') }}" method="POST" id="input-frame">
+        <div><input type="text" id="input-text" placeholder="input number" name="val" autofocus required></div>
 
+        <div>
             <button type="submit" class="btn">Send</button>
+        </div>
+    </form>
+
+    <div id="restart1">
+        <form action="{{ url_for('restart') }}">
+
+            <button type="submit">New game</button>
         </form>
     </div>
 </div>
