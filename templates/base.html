@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+
+        {% block title %}
+
+        {% endblock %} | угадай число
+
+    </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<div id="main-frame">
+
+    <div id="window-out">
+    <code disabled name="window" readonly>
+        {% block window %}{% endblock %}
+    </code>
+    </div>
+
+
+    <div id="input-frame">
+        <form action="{{ url_for('index') }}" method="POST">
+            <input type="text" placeholder="input number" name="val" autofocus>
+
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </div>
+</div>
+
+<div id="author">
+    © Artem Fadeev
+</div>
+
+</body>
+</html>
