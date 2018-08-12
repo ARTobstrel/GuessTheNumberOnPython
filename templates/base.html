@@ -20,9 +20,9 @@
 <div id="main-frame">
 
     <div id="window-out">
-        <code disabled name="window" readonly>
+        <div disabled name="window" readonly>
             {% block window %}{% endblock %}
-        </code>
+        </div>
     </div>
 
 
@@ -34,11 +34,17 @@
         </div>
     </form>
 
-    <div id="restart1">
-        <form action="{{ url_for('restart') }}">
+    <div id="footer-frame">
+        <div id="restart1">
+            <form action="{{ url_for('restart') }}">
 
-            <button type="submit">New game</button>
-        </form>
+                <button type="submit">New game</button>
+            </form>
+        </div>
+
+        <div id="version">
+            {% block version %}{% endblock %}
+        </div>
     </div>
 </div>
 
