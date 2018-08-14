@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from game_core import GameCore
+import random
 
 app = Flask(__name__)
 core = GameCore()  # создаем экземляр игрового ядра
@@ -13,7 +14,7 @@ def index():
         return render_template('index.html', window_mes=window_mes)
 
     if request.method == 'GET':
-        window_mes = core.WELCOME_MES  # передаем вступительное сообщение
+        window_mes = random.choice(core.WELCOME_MES)  # передаем вступительное сообщение
         core.count = 0
         return render_template('index.html', window_mes=window_mes)
 
@@ -23,7 +24,7 @@ def restart():
     core.checked_num.clear()
     core.count = 0
     core.computer_guess_number()
-    window_mes = core.WELCOME_MES  # передаем вступительное сообщение
+    window_mes = random.choice(core.WELCOME_MES)  # передаем вступительное сообщение
     return render_template('index.html', window_mes=window_mes)
 
 
