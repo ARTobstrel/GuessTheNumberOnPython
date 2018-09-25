@@ -11,7 +11,6 @@
     border-radius: 30px;
     background: gainsboro;
     box-shadow: inset 3px 3px 30px #2842c7;
-
 }
 
 #window-out {
@@ -69,12 +68,6 @@
     -webkit-box-shadow: 3px 3px 4px #bababa, inset 0px 0px 1px #e69f9f;
     -moz-box-shadow: 3px 3px 4px #bababa, inset 0px 0px 1px #e69f9f;
     box-shadow: 3px 3px 4px #bababa, inset 0px 0px 1px #e69f9f;
-
-    -webkit-transition: all 0.22s ease;
-    -moz-transition: all 0.22s ease;
-    -o-transition: all 0.22s ease;
-    transition: all 0.22s ease;
-
 }
 
 .btn:hover {
@@ -96,7 +89,6 @@
     -webkit-box-shadow: 3px 3px 4px #bababa, inset 0px 0px 1px #e69f9f;
     -moz-box-shadow: 3px 3px 4px #bababa, inset 0px 0px 1px #e69f9f;
     box-shadow: 3px 3px 4px #bababa, inset 0px 0px 1px #e69f9f;
-
 }
 
 #btn:active {
@@ -118,7 +110,6 @@
     -webkit-box-shadow: 3px 3px 4px #bababa, inset 0px 0px 1px #e69f9f;
     -moz-box-shadow: 3px 3px 4px #bababa, inset 0px 0px 1px #e69f9f;
     box-shadow: 3px 3px 4px #bababa, inset 0px 0px 1px #e69f9f;
-
 }
 
 #footer-frame div {

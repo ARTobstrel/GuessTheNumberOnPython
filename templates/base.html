@@ -29,9 +29,11 @@
     <form action="{{ url_for('index') }}" method="POST" id="input-frame">
         <div><input type="text" id="input-text" placeholder="input number" name="val" autofocus required></div>
 
+       {% if active_game %}
         <div>
             <button type="submit" class="btn">Send</button>
         </div>
+        {% endif %}
     </form>
 
     <div id="footer-frame">
