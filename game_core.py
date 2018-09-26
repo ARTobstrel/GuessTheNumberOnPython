@@ -1,30 +1,16 @@
 import random
 
-from flask import url_for, redirect
-
 from game_messages import GameMessages
+from settings import Settings
 
 
-class GameCore(GameMessages):
+class GameCore(GameMessages, Settings):
     """ядро игры, вся логика игры обрабатывается в этом классе"""
-
-    def __init__(self):
-        self.computer_guess_number()  # инициализация метода загадывания числа компьютером
-        self.checked_num = set()  # сет введенных чисел
-        self.count = 0  # счетчик попыток
-        self.active_game = True # игра активна
-        self.bonus_game = False
-
-    def computer_guess_number(self):
-        """здесь компьютер загадывает число"""
-
-        self.number = random.randint(1, 100)
-        print(self.number)
 
     def output_checked_num(self):
         """здесь происходит перебор всех элементов введенных чисел(сета), с сохранением в переменную"""
         nums = ''
-        for num in self.checked_num:
+        for num in Settings.checked_num:
             nums = nums + '{}, '.format(num)
         nums = nums[:len(nums) - 2]
         return nums
@@ -53,24 +39,24 @@ class GameCore(GameMessages):
             # if input_num == self.number and self.count < 3 or input_num == 99:
             #     return redirect(url_for('.bonus'))
 
-            if input_num == self.number:
+            if input_num == Settings.number:
                 # Victory
-                self.checked_num.add(input_num)
-                self.count += 1
-                text_input = GameMessages.WIN_MES.format(self.number, self.count, self.output_checked_num())
-                self.active_game = False
+                Settings.checked_num.add(input_num)
+                Settings.count += 1
+                text_input = GameMessages.WIN_MES.format(Settings.number, Settings.count, self.output_checked_num())
+                Settings.active_game = False
                 return text_input
 
-            if input_num in self.checked_num:
+            if input_num in Settings.checked_num:
                 text_input = random.choice(GameMessages.ALREDY_EXISTS_MES).format(input_num)
                 return text_input
 
-            if input_num > self.number:
+            if input_num > Settings.number:
                 text_input = GameMessages.LESS_MES
 
-            if input_num < self.number:
+            if input_num < Settings.number:
                 text_input = GameMessages.MORE_MES
 
-            self.checked_num.add(input_num)
-            self.count += 1
+            Settings.checked_num.add(input_num)
+            Settings.count += 1
             return text_input
